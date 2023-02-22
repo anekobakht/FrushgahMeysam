@@ -1,0 +1,60 @@
+﻿@model frushgah.Models.mobile
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+<div id="content" style="position:relative;right:-3000px">
+    <h4>ویرایش اطلاعات</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="id_mobile" />
+                <div class="form-group">
+                    <label asp-for="num_mobile" class="control-label"></label>
+                    <input asp-for="num_mobile" class="form-control" />
+                    <span asp-validation-for="num_mobile" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="fname_mobile" class="control-label"></label>
+                    <input asp-for="fname_mobile" class="form-control" />
+                    <span asp-validation-for="fname_mobile" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="lname_mobile" class="control-label"></label>
+                    <input asp-for="lname_mobile" class="form-control" />
+                    <span asp-validation-for="lname_mobile" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="ذخیره اطلاعات" class="btn btn-outline-success rounded-pill" onclick="move_back()" />
+                    <a class="btn btn-outline-primary rounded-pill" onclick="move_back()" asp-action="Index">بازگشت به لیست</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(document).ready(() => {
+            $("#content").animate({ right: "0" });
+            $(window).scrollTop($("#back").offset().top);
+        });
+    </script>
+    <script>
+        function move_back() {
+            $("#form").submit(function (e) {
+                e.preventDefault();
+            });
+            if (span.show() != true) {
+                $("#content").animate({ right: "-3000" });
+                $("#form").submit();
+            }
+        }
+    </script>
+}

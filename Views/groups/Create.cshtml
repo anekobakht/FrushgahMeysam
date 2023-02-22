@@ -1,0 +1,44 @@
+@model frushgah.Models.group
+
+@{
+    ViewData["Title"] = "Create";
+    Layout="_LayoutMain";
+}
+
+<h1>Create</h1>
+
+<h4>group</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="name" class="control-label"></label>
+                <input asp-for="name" class="form-control" />
+                <span asp-validation-for="name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="pic" class="control-label"></label>
+                <div class="mb-3">
+                  @* <label for="pic" class="form-label">انتخاب تصویر</label> *@
+                  <input type="file" class="form-control" name="pic" id="pic" placeholder="فایل تصویر را بارگذاری نمایید" aria-describedby="fileHelpId">
+                  <div id="fileHelpId" class="form-text text-white">لطفا فایل تصویر را بارگذاری نمایید</div>
+                </div>
+                <input asp-for="pic" class="form-control" />
+                <span asp-validation-for="pic" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

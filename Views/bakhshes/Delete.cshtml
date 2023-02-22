@@ -1,0 +1,48 @@
+﻿@model frushgah.Models.bakhsh
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+
+<div id="content" style="position:relative;right:-3000px">
+    <h4>آیا از حذف اطلاعات اطمینان دارید؟</h4>
+    <div>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.name_bakhsh)
+            </dt>
+            <dd class="col-sm-10">
+                <label style="color:white !important"> @Html.DisplayFor(model => model.name_bakhsh)</label>
+            </dd>
+        </dl>
+
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="id_bakhsh" />
+            <input type="submit" value="حذف اطلاعات" class="btn btn-outline-danger rounded-pill" onclick="move_back()" />
+            <a onclick="move_back()" class="btn btn-outline-primary rounded-pill" asp-action="Index">بازگشت به لیست</a>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(document).ready(() => {
+            $("#content").animate({ right: "0" });
+            $(window).scrollTop($("#back").offset().top);
+        });
+    </script>
+    <script>
+        function move_back() {
+            $("#form").submit(function (e) {
+                e.preventDefault();
+            });
+            if (span.show() != true) {
+                $("#content").animate({ right: "-3000" });
+                $("#form").submit();
+            }
+        }
+    </script>
+}

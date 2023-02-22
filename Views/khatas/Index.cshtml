@@ -1,0 +1,66 @@
+﻿@model IEnumerable<frushgah.Models.khata>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+<div id="content" style="position:relative;right:-3000px">
+    <h4>خطا</h4>
+
+    <p>
+        <a class="btn btn-outline-success rounded-pill" onclick="move_back()" asp-action="Create" onclick="move_back()">مورد جدید</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.num_khata)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.name_khata)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.sms)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.num_khata)
+                    </td>
+                    <td class="td_area" style="width:80% !important">
+                        @Html.DisplayFor(modelItem => item.name_khata)
+                    </td>
+                    <td  style="width:10%">
+                        @Html.DisplayFor(modelItem => item.sms, new {@style= "color:#00BFFF !important" } )
+                    </td>
+                    <td style="width:10% !important">
+                        <a asp-action="Edit" onclick="move_back()" asp-route-id="@item.id_khata"><i class="fa fa-pencil text-warning fa-2x pl-2" aria-hidden="true"></i></a> |
+                        <a asp-action="Delete" onclick="move_back()" asp-route-id="@item.id_khata"><i class="fa fa-trash-o text-danger fa-2x pl-2" aria-hidden="true"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+@section Scripts {
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(document).ready(() => {
+            $("#content").animate({ right: "0" });
+            $(window).scrollTop($("#back").offset().top);
+        });
+    </script>
+    <script>
+        function move_back() {
+            $("#content").animate({ right: "-3000" });
+        }
+    </script>
+
+}

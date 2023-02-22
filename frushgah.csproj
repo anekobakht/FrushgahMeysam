@@ -1,0 +1,82 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Views\bakhshes\**" />
+    <Compile Remove="Views\jensiats\**" />
+    <Compile Remove="Views\khatas\**" />
+    <Compile Remove="Views\mobiles\**" />
+    <Compile Remove="Views\nevers\**" />
+    <Compile Remove="Views\users\**" />
+    <Content Remove="Views\bakhshes\**" />
+    <Content Remove="Views\jensiats\**" />
+    <Content Remove="Views\khatas\**" />
+    <Content Remove="Views\mobiles\**" />
+    <Content Remove="Views\nevers\**" />
+    <Content Remove="Views\users\**" />
+    <EmbeddedResource Remove="Views\bakhshes\**" />
+    <EmbeddedResource Remove="Views\jensiats\**" />
+    <EmbeddedResource Remove="Views\khatas\**" />
+    <EmbeddedResource Remove="Views\mobiles\**" />
+    <EmbeddedResource Remove="Views\nevers\**" />
+    <EmbeddedResource Remove="Views\users\**" />
+    <None Remove="Views\bakhshes\**" />
+    <None Remove="Views\jensiats\**" />
+    <None Remove="Views\khatas\**" />
+    <None Remove="Views\mobiles\**" />
+    <None Remove="Views\nevers\**" />
+    <None Remove="Views\users\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\bakhshesController.cs" />
+    <Compile Remove="Controllers\jensiatsController.cs" />
+    <Compile Remove="Controllers\khatasController.cs" />
+    <Compile Remove="Controllers\mobilesController.cs" />
+    <Compile Remove="Controllers\neversController.cs" />
+    <Compile Remove="Controllers\usersController.cs" />
+    <Compile Remove="Models\bakhsh.cs" />
+    <Compile Remove="Models\count_jensiat.cs" />
+    <Compile Remove="Models\count_khata.cs" />
+    <Compile Remove="Models\jensiat.cs" />
+    <Compile Remove="Models\khata.cs" />
+    <Compile Remove="Models\moblie.cs" />
+    <Compile Remove="Models\never.cs" />
+    <Compile Remove="Models\sentsms.cs" />
+    <Compile Remove="Models\user.cs" />
+    <Compile Remove="Models\v_never.cs" />
+    <Compile Remove="Models\v_user.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Chart.Mvc.Core" Version="1.1.0" />
+    <PackageReference Include="ChartJSCore" Version="3.3.0" />
+    <PackageReference Include="ClosedXML" Version="0.96.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.8" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="System.ServiceModel.Duplex" Version="4.8.*" />
+    <PackageReference Include="System.ServiceModel.Federation" Version="4.8.*" />
+    <PackageReference Include="System.ServiceModel.Http" Version="4.8.*" />
+    <PackageReference Include="System.ServiceModel.NetTcp" Version="4.8.*" />
+    <PackageReference Include="System.ServiceModel.Security" Version="4.8.*" />
+    <PackageReference Include="WebEssentials.AspNetCore.PWA" Version="1.0.65" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+    <Folder Include="wwwroot\font_nbt\" />
+  </ItemGroup>
+
+</Project>
