@@ -17,7 +17,6 @@ namespace frushgah.Models
         public string? name { get; set; }
         //**********************************************************************
         [Display(Name = "تصویر")]
-        [Required(ErrorMessage = "لطفا تصویر را انتخاب نمایید")]
         public byte[]? pic { get; set; }
         //**********************************************************************
         // [Display(Name = "نام و نام خانوادگی بیمار")]
