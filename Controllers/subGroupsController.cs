@@ -55,8 +55,29 @@ namespace frushgah.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("idSupGroup,idGroup,nameSupGroup,picSupGroup")] subGroup subGroup)
+        public async Task<IActionResult> Create(IFormFile picSupGroup, [Bind("idSupGroup,idGroup,nameSupGroup")] subGroup subGroup)
         {
+            if (picSupGroup != null)
+            {
+                using (var memoryStream = new MemoryStream())
+                {
+                    await picSupGroup.CopyToAsync(memoryStream);
+                    // Upload the file if less than 2 MB
+                    if (memoryStream.Length < 10097152)
+                    {
+                        subGroup.picSupGroup = memoryStream.ToArray();
+                        // group.peyvast1_kind_never = Path.GetExtension(peyvast1_never.FileName);
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("peyvast1_never", "فایل پیوست اول بزرگتر از 2 مگ میباشد");
+                    }
+                }
+            }
+            else
+            {
+                subGroup.picSupGroup = null;
+            }
             if (ModelState.IsValid)
             {
                 _context.Add(subGroup);
