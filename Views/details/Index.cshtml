@@ -1,0 +1,85 @@
+﻿@model IEnumerable<frushgah.Models.detail>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+<h1 class="text-white">@ViewBag.nameSubGroup</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.idSubGroup)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nameDetail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pic1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pic2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pic3)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.idSubGroup)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nameDetail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.price)
+            </td>
+            @if (item.pic1 != null)
+            {
+                <td>
+                    @{ string imageBase64 = Convert.ToBase64String(item.pic1); string
+                        imageSrc = string.Format("data:image/gif;base64,{0}", imageBase64);
+                        <img src="@imageSrc" width="100" height="100" />
+                    }
+                </td>
+            }
+
+            @if (item.pic2 != null)
+            {
+                <td>
+                    @{ string imageBase64 = Convert.ToBase64String(item.pic2); string
+                        imageSrc = string.Format("data:image/gif;base64,{0}", imageBase64);
+                        <img src="@imageSrc" width="100" height="100" />
+                    }
+                </td>
+            }
+            @if (item.pic3 != null)
+            {
+                <td>
+                    @{ string imageBase64 = Convert.ToBase64String(item.pic3); string
+                       imageSrc = string.Format("data:image/gif;base64,{0}", imageBase64);
+                        <img src="@imageSrc" width="100" height="100" />
+                    }
+                </td>
+            }
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.idDetail">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.idDetail">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.idDetail">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -15,6 +15,26 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\Projects\Core\FrushgahMeysam
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/Projects/Core/FrushgahMeysam/Views/details/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcZGV0YWlsc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/Core/FrushgahMeysam/Views/details/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcZGV0YWlsc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/Core/FrushgahMeysam/Views/details/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcZGV0YWlsc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/Core/FrushgahMeysam/Views/details/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcZGV0YWlsc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/Core/FrushgahMeysam/Views/details/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcZGV0YWlsc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Projects/Core/FrushgahMeysam/Views/groups/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcZ3JvdXBzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

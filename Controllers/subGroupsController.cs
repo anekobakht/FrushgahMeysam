@@ -20,10 +20,29 @@ namespace frushgah.Controllers
         }
 
         // GET: subGroups
-        public async Task<IActionResult> Index(Int64 idGroup)
+        public async Task<IActionResult> Index(Int64? idGroup)
         {
-            HttpContext.Session.SetString("idGroup", idGroup.ToString());
-            return View(await _context.subGroup.Where(s => s.idGroup == idGroup).ToListAsync());
+            try
+            {
+                if (idGroup != null)
+                {
+                    HttpContext.Session.SetString("idGroup", idGroup.ToString());
+                }
+                else
+                {
+                    idGroup = Int64.Parse(HttpContext.Session.GetString("idGroup"));
+                }
+                //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                var q = _context.group.AsNoTracking().Where(s => s.idGroup == idGroup).FirstOrDefault();
+                ViewBag.nameGroup = q.nameGroup;
+                //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                return View(await _context.subGroup.Where(s => s.idGroup == idGroup).ToListAsync());
+            }
+            catch
+            {
+                return RedirectToAction("Index", "groups");
+            }
+
         }
 
         // GET: subGroups/Details/5
@@ -35,7 +54,7 @@ namespace frushgah.Controllers
             }
 
             var subGroup = await _context.subGroup
-                .FirstOrDefaultAsync(m => m.idSupGroup == id);
+                .FirstOrDefaultAsync(m => m.idSubGroup == id);
             if (subGroup == null)
             {
                 return NotFound();
@@ -55,17 +74,22 @@ namespace frushgah.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(IFormFile picSupGroup, [Bind("idSupGroup,idGroup,nameSupGroup")] subGroup subGroup)
+        public async Task<IActionResult> Create(IFormFile picSubGroup, [Bind("idSubGroup,nameSubGroup")] subGroup subGroup)
         {
-            if (picSupGroup != null)
+
+            try
+            {
+                
+
+                if (picSubGroup != null)
             {
                 using (var memoryStream = new MemoryStream())
                 {
-                    await picSupGroup.CopyToAsync(memoryStream);
+                    await picSubGroup.CopyToAsync(memoryStream);
                     // Upload the file if less than 2 MB
                     if (memoryStream.Length < 10097152)
                     {
-                        subGroup.picSupGroup = memoryStream.ToArray();
+                        subGroup.picSubGroup = memoryStream.ToArray();
                         // group.peyvast1_kind_never = Path.GetExtension(peyvast1_never.FileName);
                     }
                     else
@@ -76,15 +100,21 @@ namespace frushgah.Controllers
             }
             else
             {
-                subGroup.picSupGroup = null;
+                subGroup.picSubGroup = null;
             }
-            if (ModelState.IsValid)
-            {
+
+                subGroup.idGroup = Int64.Parse(HttpContext.Session.GetString("idGroup"));
+           
                 _context.Add(subGroup);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index");
             }
-            return View(subGroup);
+            catch
+            {
+                ViewBag.er = "1";
+                return View();
+
+            }
         }
 
         // GET: subGroups/Edit/5
@@ -110,7 +140,7 @@ namespace frushgah.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(long id, [Bind("idSupGroup,idGroup,nameSupGroup,picSupGroup")] subGroup subGroup)
         {
-            if (id != subGroup.idSupGroup)
+            if (id != subGroup.idSubGroup)
             {
                 return NotFound();
             }
@@ -124,7 +154,7 @@ namespace frushgah.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!subGroupExists(subGroup.idSupGroup))
+                    if (!subGroupExists(subGroup.idSubGroup))
                     {
                         return NotFound();
                     }
@@ -147,7 +177,7 @@ namespace frushgah.Controllers
             }
 
             var subGroup = await _context.subGroup
-                .FirstOrDefaultAsync(m => m.idSupGroup == id);
+                .FirstOrDefaultAsync(m => m.idSubGroup == id);
             if (subGroup == null)
             {
                 return NotFound();
@@ -177,7 +207,7 @@ namespace frushgah.Controllers
 
         private bool subGroupExists(long id)
         {
-          return _context.subGroup.Any(e => e.idSupGroup == id);
+          return _context.subGroup.Any(e => e.idSubGroup == id);
         }
     }
 }

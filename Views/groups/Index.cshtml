@@ -30,8 +30,8 @@
         }
         <td>
           @* <a asp-action="Edit" asp-route-id="@item.id">Edit</a> | *@
-          <a asp-controller="subGroup" asp-action="Index" class="btn btn-success btn-rounded" asp-route-id="@item.idGroup">زیر مجموعه</a>
-          <a class="btn btn-outline-primary btn-rounded" asp-action="Delete" asp-route-id="@item.idGroup">حذف</a>
+          <a asp-controller="subGroups" asp-action="Index" class="btn btn-primary btn-rounded" asp-route-idGroup="@item.idGroup">زیر مجموعه</a>
+          <a class="btn btn-outline-primary btn-rounded" asp-action="Delete" asp-route-idGroup="@item.idGroup">حذف</a>
         </td>
       </tr>
       }

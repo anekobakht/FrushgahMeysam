@@ -10,33 +10,47 @@
 <h4>subGroup</h4>
 <hr />
 <div class="row">
+    @*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% error*@
+    @if(ViewBag.er=="1")
+            {
+        <script>
+            alert('خطا در ثبت اطلاعات')
+        </script>
+
+            }
+    @*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% error*@
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*<div class="form-group">
+            <label asp-for="idGroup" class="control-label"></label>
+            <input asp-for="idGroup" class="form-control" />
+            <span asp-validation-for="idGroup" class="text-danger"></span>
+        </div>*@
             <div class="form-group">
-                <label asp-for="idGroup" class="control-label"></label>
-                <input asp-for="idGroup" class="form-control" />
-                <span asp-validation-for="idGroup" class="text-danger"></span>
+                <label asp-for="nameSubGroup" class="control-label"></label>
+                <input asp-for="nameSubGroup" class="form-control" />
+                <span asp-validation-for="nameSubGroup" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="nameSupGroup" class="control-label"></label>
-                <input asp-for="nameSupGroup" class="form-control" />
-                <span asp-validation-for="nameSupGroup" class="text-danger"></span>
+            <div class="mb-3">
+                <label asp-for="picSubGroup" class="form-label">انتخاب تصویر</label>
+                <input type="file" class="form-control" name="picSubGroup" id="picSubGroup">
             </div>
+            @*<div class="form-group">
+            <label asp-for="picSubGroup" class="control-label"></label>
+            <input asp-for="picSubGroup" class="form-control" />
+            <span asp-validation-for="picSubGroup" class="text-danger"></span>
+        </div>*@
             <div class="form-group">
-                <label asp-for="picSupGroup" class="control-label"></label>
-                <input asp-for="picSupGroup" class="form-control" />
-                <span asp-validation-for="picSupGroup" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="ایجاد" class="btn btn-outline-success btn-rounded" />
+                <a class="btn btn-outline-primary btn-rounded" asp-action="Index">بازگشت</a>
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    
 </div>
 
 @section Scripts {

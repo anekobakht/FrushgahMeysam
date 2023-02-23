@@ -5,22 +5,20 @@
     Layout = "~/Views/Shared/_LayoutMain.cshtml";
 }
 
-<h1>Index</h1>
+<h1 class="text-white">@ViewBag.nameGroup</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">ثبت مورد جدید</a>
+    <a asp-action="Index" asp-controller="groups">بازگشت</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.idGroup)
+                @Html.DisplayNameFor(model => model.nameSubGroup)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.nameSupGroup)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.picSupGroup)
+                @Html.DisplayNameFor(model => model.picSubGroup)
             </th>
             <th></th>
         </tr>
@@ -28,19 +26,23 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
+
             <td>
-                @Html.DisplayFor(modelItem => item.idGroup)
+                @Html.DisplayFor(modelItem => item.nameSubGroup)
             </td>
+            @if (item.picSubGroup != null)
+            {
+                <td>
+                    @{ string imageBase64 = Convert.ToBase64String(item.picSubGroup); string
+                     imageSrc = string.Format("data:image/gif;base64,{0}", imageBase64);
+                        <img src="@imageSrc" width="100" height="100" />
+                    }
+                </td>
+            }
             <td>
-                @Html.DisplayFor(modelItem => item.nameSupGroup)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.picSupGroup)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.idSupGroup">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.idSupGroup">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.idSupGroup">Delete</a>
+                @*<a asp-action="Edit" asp-route-id="@item.idSubGroup">Edit</a> |*@
+                <a asp-action="Details" asp-route-id="@item.idSubGroup">تعریف کالا</a> |
+                <a asp-action="Delete" asp-route-id="@item.idSubGroup">حذف</a>
             </td>
         </tr>
 }

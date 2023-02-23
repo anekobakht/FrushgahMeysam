@@ -10,17 +10,17 @@ namespace frushgah.Models
     public class subGroup
     {
         [Key]
-        public Int64 idSupGroup { get; set; }
+        public Int64 idSubGroup { get; set; }
         //**********************************************************************
         [Display(Name = "نام گروه")]
         public Int64 idGroup { get; set; }
         //**********************************************************************
         [Display(Name = "نام زیرگروه")]
         [Required(ErrorMessage = "لطفا نام زیر گروه را وارد نمایید")]
-        public string? nameSupGroup { get; set; }
+        public string? nameSubGroup { get; set; }
         //**********************************************************************
         [Display(Name = "تصویر")]
-        public byte[]? picSupGroup { get; set; }
+        public byte[]? picSubGroup { get; set; }
         //**********************************************************************
        
     }

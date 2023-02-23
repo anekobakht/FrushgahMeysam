@@ -16,6 +16,7 @@ namespace frushgah.Data
 
         // public DbSet<frushgah.Models.user>? user { get; set; } = default!;
         public DbSet<frushgah.Models.group>? group { get; set; } = default!;
+        public DbSet<frushgah.Models.subGroup> subGroup { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
@@ -40,7 +41,8 @@ namespace frushgah.Data
 
 
         }
-        public DbSet<frushgah.Models.subGroup> subGroup { get; set; }
+        public DbSet<frushgah.Models.detail> detail { get; set; }
+        
 
     }
 }
