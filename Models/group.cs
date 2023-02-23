@@ -10,14 +10,14 @@ namespace frushgah.Models
     public class group
     {
         [Key]
-        public Int64 id { get; set; }
+        public Int64 idGroup { get; set; }
         //**********************************************************************
         [Display(Name = "نام گروه")]
         [Required(ErrorMessage = "لطفا نام گروه را وارد نمایید")]
-        public string? name { get; set; }
+        public string? nameGroup { get; set; }
         //**********************************************************************
         [Display(Name = "تصویر")]
-        public byte[]? pic { get; set; }
+        public byte[]? picGroup { get; set; }
         //**********************************************************************
         // [Display(Name = "نام و نام خانوادگی بیمار")]
         // [Required(ErrorMessage = "لطفا نام و نام خانوادگی بیمار را وارد نمایید")]

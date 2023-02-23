@@ -11,18 +11,18 @@
   <table class="table">
     <thead>
       <tr>
-        <th>@Html.DisplayNameFor(model => model.name)</th>
-        <th>@Html.DisplayNameFor(model => model.pic)</th>
+        <th>@Html.DisplayNameFor(model => model.nameGroup)</th>
+        <th>@Html.DisplayNameFor(model => model.picGroup)</th>
         <th></th>
       </tr>
     </thead>
     <tbody>
       @foreach (var item in Model) {
       <tr>
-        <td>@Html.DisplayFor(modelItem => item.name)</td>
-        @if(item.pic!=null) {
+        <td>@Html.DisplayFor(modelItem => item.nameGroup)</td>
+        @if(item.picGroup != null) {
         <td>
-          @{ string imageBase64 = Convert.ToBase64String(item.pic); string
+          @{ string imageBase64 = Convert.ToBase64String(item.picGroup); string
           imageSrc = string.Format("data:image/gif;base64,{0}", imageBase64);
           <img src="@imageSrc" width="100" height="100" />
           }
@@ -30,11 +30,11 @@
         }
         <td>
           @* <a asp-action="Edit" asp-route-id="@item.id">Edit</a> | *@
-          <a asp-controller="subGroup" asp-action="Index" class="btn btn-success btn-rounded" asp-route-id="@item.id">زیر مجموعه</a>
-          <a class="btn btn-outline-primary btn-rounded" asp-action="Delete" asp-route-id="@item.id">حذف</a>
+          <a asp-controller="subGroup" asp-action="Index" class="btn btn-success btn-rounded" asp-route-id="@item.idGroup">زیر مجموعه</a>
+          <a class="btn btn-outline-primary btn-rounded" asp-action="Delete" asp-route-id="@item.idGroup">حذف</a>
         </td>
       </tr>
       }
     </tbody>
   </table>
-</frushgah.Models.group>
+

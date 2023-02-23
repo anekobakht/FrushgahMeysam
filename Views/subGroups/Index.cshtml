@@ -1,0 +1,48 @@
+﻿@model IEnumerable<frushgah.Models.subGroup>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.idGroup)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nameSupGroup)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.picSupGroup)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.idGroup)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nameSupGroup)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.picSupGroup)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.idSupGroup">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.idSupGroup">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.idSupGroup">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

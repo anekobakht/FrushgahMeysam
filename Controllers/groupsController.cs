@@ -28,15 +28,15 @@ namespace frushgah.Controllers
         }
 
         // GET: groups/Details/5
-        public async Task<IActionResult> Details(long? id)
+        public async Task<IActionResult> Details(long? idGroup)
         {
-            if (id == null || _context.group == null)
+            if (idGroup == null || _context.group == null)
             {
                 return NotFound();
             }
 
             var @group = await _context.group
-                .FirstOrDefaultAsync(m => m.id == id);
+                .FirstOrDefaultAsync(m => m.idGroup == idGroup);
             if (@group == null)
             {
                 return NotFound();
@@ -56,17 +56,17 @@ namespace frushgah.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(IFormFile pic, [Bind("id,name")] group @group)
+        public async Task<IActionResult> Create(IFormFile picGroup, [Bind("idGroup,nameGroup")] group @group)
         {
-            if (pic != null)
+            if (picGroup != null)
             {
                 using (var memoryStream = new MemoryStream())
                 {
-                    await pic.CopyToAsync(memoryStream);
+                    await picGroup.CopyToAsync(memoryStream);
                     // Upload the file if less than 2 MB
                     if (memoryStream.Length < 10097152)
                     {
-                        group.pic = memoryStream.ToArray();
+                        group.picGroup = memoryStream.ToArray();
                         // group.peyvast1_kind_never = Path.GetExtension(peyvast1_never.FileName);
                     }
                     else
@@ -77,7 +77,7 @@ namespace frushgah.Controllers
             }
             else
             {
-                group.pic = null;
+                group.picGroup = null;
             }
 
 
@@ -91,14 +91,14 @@ namespace frushgah.Controllers
         }
 
         // GET: groups/Edit/5
-        public async Task<IActionResult> Edit(long? id)
+        public async Task<IActionResult> Edit(long? idGroup)
         {
-            if (id == null || _context.group == null)
+            if (idGroup == null || _context.group == null)
             {
                 return NotFound();
             }
 
-            var @group = await _context.group.FindAsync(id);
+            var @group = await _context.group.FindAsync(idGroup);
             if (@group == null)
             {
                 return NotFound();
@@ -111,9 +111,9 @@ namespace frushgah.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind("id,name,pic")] group @group)
+        public async Task<IActionResult> Edit(long idGroup, [Bind("idGroup,nameGroup,picGroup")] group @group)
         {
-            if (id != @group.id)
+            if (idGroup != @group.idGroup)
             {
                 return NotFound();
             }
@@ -127,7 +127,7 @@ namespace frushgah.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!groupExists(@group.id))
+                    if (!groupExists(@group.idGroup))
                     {
                         return NotFound();
                     }
@@ -142,15 +142,15 @@ namespace frushgah.Controllers
         }
 
         // GET: groups/Delete/5
-        public async Task<IActionResult> Delete(long? id)
+        public async Task<IActionResult> Delete(long? idGroup)
         {
-            if (id == null || _context.group == null)
+            if (idGroup == null || _context.group == null)
             {
                 return NotFound();
             }
 
             var @group = await _context.group
-                .FirstOrDefaultAsync(m => m.id == id);
+                .FirstOrDefaultAsync(m => m.idGroup == idGroup);
             if (@group == null)
             {
                 return NotFound();
@@ -162,13 +162,13 @@ namespace frushgah.Controllers
         // POST: groups/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(long id)
+        public async Task<IActionResult> DeleteConfirmed(long idGroup)
         {
             if (_context.group == null)
             {
                 return Problem("Entity set 'frushgahContext.group'  is null.");
             }
-            var @group = await _context.group.FindAsync(id);
+            var @group = await _context.group.FindAsync(idGroup);
             if (@group != null)
             {
                 _context.group.Remove(@group);
@@ -178,9 +178,9 @@ namespace frushgah.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool groupExists(long id)
+        private bool groupExists(long idGroup)
         {
-            return (_context.group?.Any(e => e.id == id)).GetValueOrDefault();
+            return (_context.group?.Any(e => e.idGroup == idGroup)).GetValueOrDefault();
         }
     }
 }

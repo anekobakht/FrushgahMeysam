@@ -1,0 +1,44 @@
+﻿@model frushgah.Models.subGroup
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>subGroup</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="idGroup" class="control-label"></label>
+                <input asp-for="idGroup" class="form-control" />
+                <span asp-validation-for="idGroup" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="nameSupGroup" class="control-label"></label>
+                <input asp-for="nameSupGroup" class="form-control" />
+                <span asp-validation-for="nameSupGroup" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="picSupGroup" class="control-label"></label>
+                <input asp-for="picSupGroup" class="form-control" />
+                <span asp-validation-for="picSupGroup" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

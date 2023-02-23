@@ -14,29 +14,26 @@
         <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="name" class="control-label"></label>
-                <input asp-for="name" class="form-control" />
-                <span asp-validation-for="name" class="text-danger"></span>
+                <label asp-for="nameGroup" class="control-label"></label>
+                <input asp-for="nameGroup" class="form-control" />
+                <span asp-validation-for="nameGroup" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="pic" class="control-label"></label>
+                <label asp-for="picGroup" class="control-label"></label>
                 <div class="mb-3">
                   @* <label for="pic" class="form-label">انتخاب تصویر</label> *@
                   <input type="file" class="form-control" name="pic" id="pic" placeholder="فایل تصویر را بارگذاری نمایید" aria-describedby="fileHelpId">
                   <div id="fileHelpId" class="form-text text-white">لطفا فایل تصویر را بارگذاری نمایید</div>
                 </div>
-                <input asp-for="pic" class="form-control" />
-                <span asp-validation-for="pic" class="text-danger"></span>
+                <input asp-for="picGroup" class="form-control" />
+                <span asp-validation-for="picGroup" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="ایجاد" class="btn btn-success btn-rounded" />
+                <a class="btn btn-outline-info btn-rounded" asp-action="Index">بازگشت به لیست</a>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

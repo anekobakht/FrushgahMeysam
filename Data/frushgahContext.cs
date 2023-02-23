@@ -40,6 +40,7 @@ namespace frushgah.Data
 
 
         }
+        public DbSet<frushgah.Models.subGroup> subGroup { get; set; }
 
     }
 }
