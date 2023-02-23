@@ -8,89 +8,89 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = frushgah
 build_property.RootNamespace = frushgah
-build_property.ProjectDir = D:\Projects\Core\FrushgahMeysam\
+build_property.ProjectDir = D:\Clone\FrushgahMeysam\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\Projects\Core\FrushgahMeysam
+build_property.MSBuildProjectDirectory = D:\Clone\FrushgahMeysam
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/Projects/Core/FrushgahMeysam/Views/details/Create.cshtml]
+[D:/Clone/FrushgahMeysam/Views/details/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcZGV0YWlsc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Core/FrushgahMeysam/Views/details/Delete.cshtml]
+[D:/Clone/FrushgahMeysam/Views/details/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcZGV0YWlsc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Core/FrushgahMeysam/Views/details/Details.cshtml]
+[D:/Clone/FrushgahMeysam/Views/details/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcZGV0YWlsc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Core/FrushgahMeysam/Views/details/Edit.cshtml]
+[D:/Clone/FrushgahMeysam/Views/details/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcZGV0YWlsc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Core/FrushgahMeysam/Views/details/Index.cshtml]
+[D:/Clone/FrushgahMeysam/Views/details/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcZGV0YWlsc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Core/FrushgahMeysam/Views/groups/Create.cshtml]
+[D:/Clone/FrushgahMeysam/Views/groups/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcZ3JvdXBzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Core/FrushgahMeysam/Views/groups/Delete.cshtml]
+[D:/Clone/FrushgahMeysam/Views/groups/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcZ3JvdXBzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Core/FrushgahMeysam/Views/groups/Details.cshtml]
+[D:/Clone/FrushgahMeysam/Views/groups/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcZ3JvdXBzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Core/FrushgahMeysam/Views/groups/Index.cshtml]
+[D:/Clone/FrushgahMeysam/Views/groups/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcZ3JvdXBzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Core/FrushgahMeysam/Views/Shared/Error.cshtml]
+[D:/Clone/FrushgahMeysam/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Core/FrushgahMeysam/Views/Shared/_LayoutMain.cshtml]
+[D:/Clone/FrushgahMeysam/Views/Shared/_LayoutMain.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRNYWluLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Core/FrushgahMeysam/Views/Shared/_LayoutUser.cshtml]
+[D:/Clone/FrushgahMeysam/Views/Shared/_LayoutUser.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRVc2VyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Core/FrushgahMeysam/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/Clone/FrushgahMeysam/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Core/FrushgahMeysam/Views/subGroups/Create.cshtml]
+[D:/Clone/FrushgahMeysam/Views/subGroups/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc3ViR3JvdXBzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Core/FrushgahMeysam/Views/subGroups/Delete.cshtml]
+[D:/Clone/FrushgahMeysam/Views/subGroups/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc3ViR3JvdXBzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Core/FrushgahMeysam/Views/subGroups/Details.cshtml]
+[D:/Clone/FrushgahMeysam/Views/subGroups/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc3ViR3JvdXBzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Core/FrushgahMeysam/Views/subGroups/Index.cshtml]
+[D:/Clone/FrushgahMeysam/Views/subGroups/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc3ViR3JvdXBzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Core/FrushgahMeysam/Views/_ViewImports.cshtml]
+[D:/Clone/FrushgahMeysam/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Core/FrushgahMeysam/Views/_ViewStart.cshtml]
+[D:/Clone/FrushgahMeysam/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Core/FrushgahMeysam/Views/Shared/_Layout.cshtml]
+[D:/Clone/FrushgahMeysam/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-dqjx6l9xk2

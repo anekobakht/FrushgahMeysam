@@ -26,7 +26,7 @@ namespace frushgah.Controllers
             {
                 if (idSubGroup != null)
                 {
-                    HttpContext.Session.SetString("idGroup", idSubGroup.ToString());
+                    HttpContext.Session.SetString("idSubGroup", idSubGroup.ToString());
                 }
                 else
                 {
@@ -44,47 +44,101 @@ namespace frushgah.Controllers
             }
         }
 
-        // GET: details/Details/5
-        public async Task<IActionResult> Details(long? id)
-        {
-            if (id == null || _context.detail == null)
-            {
-                return NotFound();
-            }
-
-            var detail = await _context.detail
-                .FirstOrDefaultAsync(m => m.idDetail == id);
-            if (detail == null)
-            {
-                return NotFound();
-            }
-
-            return View(detail);
-        }
-
-        // GET: details/Create
+  
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: details/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("idDetail,idSubGroup,nameDetail,price,pic1,pic2,pic3")] detail detail)
+        public async Task<IActionResult> Create(IFormFile pic1,IFormFile pic2,IFormFile pic3,[Bind("idDetail,nameDetail,price")] detail detail)
         {
-            if (ModelState.IsValid)
+
+            try
             {
+                //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% pic1
+                if (pic1 != null)
+                {
+                    using (var memoryStream = new MemoryStream())
+                    {
+                        await pic1.CopyToAsync(memoryStream);
+                        // Upload the file if less than 2 MB
+                        if (memoryStream.Length < 10097152)
+                        {
+                            detail.pic1 = memoryStream.ToArray();
+                        }
+                        else
+                        {
+                            ModelState.AddModelError("peyvast1_never", "فایل پیوست اول بزرگتر از 2 مگ میباشد");
+                        }
+                    }
+                }
+                else
+                {
+                    detail.pic1 = null;
+                };
+                //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% pic2
+                if (pic2 != null)
+                {
+                    using (var memoryStream = new MemoryStream())
+                    {
+                        await pic2.CopyToAsync(memoryStream);
+                        // Upload the file if less than 2 MB
+                        if (memoryStream.Length < 10097152)
+                        {
+                            detail.pic2 = memoryStream.ToArray();
+                        }
+                        else
+                        {
+                            ModelState.AddModelError("peyvast1_never", "فایل پیوست اول بزرگتر از 2 مگ میباشد");
+                        }
+                    }
+                }
+                else
+                {
+                    detail.pic2 = null;
+                }
+                //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% pic3
+                if (pic3 != null)
+                {
+                    using (var memoryStream = new MemoryStream())
+                    {
+                        await pic3.CopyToAsync(memoryStream);
+                        // Upload the file if less than 2 MB
+                        if (memoryStream.Length < 10097152)
+                        {
+                            detail.pic3 = memoryStream.ToArray();
+                        }
+                        else
+                        {
+                            ModelState.AddModelError("peyvast1_never", "فایل پیوست اول بزرگتر از 2 مگ میباشد");
+                        }
+                    }
+                }
+                else
+                {
+                    detail.pic3 = null;
+                }
+                //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+                detail.idSubGroup = Int64.Parse(HttpContext.Session.GetString("idSubGroup"));
+
                 _context.Add(detail);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index");
             }
-            return View(detail);
+            catch
+            {
+                ViewBag.er = "1";
+                return View();
+
+            }
+
         }
 
-        // GET: details/Edit/5
         public async Task<IActionResult> Edit(long? id)
         {
             if (id == null || _context.detail == null)
@@ -100,9 +154,6 @@ namespace frushgah.Controllers
             return View(detail);
         }
 
-        // POST: details/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(long id, [Bind("idDetail,idSubGroup,nameDetail,price,pic1,pic2,pic3")] detail detail)
@@ -135,7 +186,6 @@ namespace frushgah.Controllers
             return View(detail);
         }
 
-        // GET: details/Delete/5
         public async Task<IActionResult> Delete(long? id)
         {
             if (id == null || _context.detail == null)
@@ -153,7 +203,6 @@ namespace frushgah.Controllers
             return View(detail);
         }
 
-        // POST: details/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long id)

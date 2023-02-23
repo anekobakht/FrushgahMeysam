@@ -19,6 +19,7 @@ namespace frushgah.Models
         public string? nameDetail { get; set; }
         //**********************************************************************
         [Display(Name = "قیمت")]
+        [DisplayFormat(DataFormatString = "{0:n0}", ApplyFormatInEditMode = true)]
         [Required(ErrorMessage = "لطفا قیمت کالا را وارد نمایید")]
         public Int64 price { get; set; }
         //**********************************************************************

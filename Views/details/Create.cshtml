@@ -1,5 +1,4 @@
 ﻿@model frushgah.Models.detail
-
 @{
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_LayoutMain.cshtml";
@@ -10,10 +9,18 @@
 <h4>detail</h4>
 <hr />
 <div class="row">
+    @*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% error*@
+    @if (ViewBag.er == "1")
+    {
+        <script>
+            alert('خطا در ثبت اطلاعات')
+        </script>
+    }
+    @*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% error*@
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+            <div hidden class="form-group">
                 <label asp-for="idSubGroup" class="control-label"></label>
                 <input asp-for="idSubGroup" class="form-control" />
                 <span asp-validation-for="idSubGroup" class="text-danger"></span>
@@ -25,26 +32,24 @@
             </div>
             <div class="form-group">
                 <label asp-for="price" class="control-label"></label>
-                <input asp-for="price" class="form-control" />
+                <input id="price" asp-for="price" class="form-control" />
                 <span asp-validation-for="price" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="pic1" class="control-label"></label>
-                <input asp-for="pic1" class="form-control" />
-                <span asp-validation-for="pic1" class="text-danger"></span>
+            <div class="mb-3">
+                <label asp-for="pic1" class="form-label">انتخاب تصویر</label>
+                <input type="file" class="form-control" name="pic1" id="pic1">
             </div>
-            <div class="form-group">
-                <label asp-for="pic2" class="control-label"></label>
-                <input asp-for="pic2" class="form-control" />
-                <span asp-validation-for="pic2" class="text-danger"></span>
+            <div class="mb-3">
+                <label asp-for="pic2" class="form-label">انتخاب تصویر</label>
+                <input type="file" class="form-control" name="pic2" id="pic2">
             </div>
-            <div class="form-group">
-                <label asp-for="pic3" class="control-label"></label>
-                <input asp-for="pic3" class="form-control" />
-                <span asp-validation-for="pic3" class="text-danger"></span>
+            <div class="mb-3">
+                <label asp-for="pic3" class="form-label">انتخاب تصویر</label>
+                <input type="file" class="form-control" name="pic3" id="pic3">
             </div>
+
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="ثبت" class="btn btn-primary" />
             </div>
         </form>
     </div>
@@ -55,5 +60,8 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    }

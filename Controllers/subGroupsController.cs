@@ -45,25 +45,7 @@ namespace frushgah.Controllers
 
         }
 
-        // GET: subGroups/Details/5
-        public async Task<IActionResult> Details(long? id)
-        {
-            if (id == null || _context.subGroup == null)
-            {
-                return NotFound();
-            }
 
-            var subGroup = await _context.subGroup
-                .FirstOrDefaultAsync(m => m.idSubGroup == id);
-            if (subGroup == null)
-            {
-                return NotFound();
-            }
-
-            return View(subGroup);
-        }
-
-        // GET: subGroups/Create
         public IActionResult Create()
         {
             return View();
@@ -79,8 +61,6 @@ namespace frushgah.Controllers
 
             try
             {
-                
-
                 if (picSubGroup != null)
             {
                 using (var memoryStream = new MemoryStream())

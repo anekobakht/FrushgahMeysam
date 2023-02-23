@@ -41,7 +41,7 @@
             }
             <td>
                 @*<a asp-action="Edit" asp-route-id="@item.idSubGroup">Edit</a> |*@
-                <a asp-action="Details" asp-route-id="@item.idSubGroup">تعریف کالا</a> |
+                <a asp-action="Index" asp-controller="details" asp-route-idSubGroup="@item.idSubGroup">تعریف کالا</a> |
                 <a asp-action="Delete" asp-route-id="@item.idSubGroup">حذف</a>
             </td>
         </tr>
