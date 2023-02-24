@@ -44,6 +44,30 @@ namespace frushgah.Controllers
             }
 
         }
+        public async Task<IActionResult> user(Int64? idGroup)
+        {
+            try
+            {
+                if (idGroup != null)
+                {
+                    HttpContext.Session.SetString("idGroup", idGroup.ToString());
+                }
+                else
+                {
+                    idGroup = Int64.Parse(HttpContext.Session.GetString("idGroup"));
+                }
+                //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                var q = _context.group.AsNoTracking().Where(s => s.idGroup == idGroup).FirstOrDefault();
+                ViewBag.nameGroup = q.nameGroup;
+                //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                return View(await _context.subGroup.Where(s => s.idGroup == idGroup).ToListAsync());
+            }
+            catch
+            {
+                return RedirectToAction("user", "groups");
+            }
+
+        }
 
 
         public IActionResult Create()

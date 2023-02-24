@@ -26,6 +26,12 @@ namespace frushgah.Controllers
                         View(await _context.group.ToListAsync()) :
                         Problem("Entity set 'frushgahContext.group'  is null.");
         }
+        public async Task<IActionResult> user()
+        {
+            return _context.group != null ?
+                        View(await _context.group.ToListAsync()) :
+                        Problem("Entity set 'frushgahContext.group'  is null.");
+        }
 
         // GET: groups/Details/5
         public async Task<IActionResult> Details(long? idGroup)

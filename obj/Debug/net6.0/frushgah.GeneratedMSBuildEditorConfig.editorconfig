@@ -23,14 +23,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcZGV0YWlsc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Clone/FrushgahMeysam/Views/details/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcZGV0YWlsc1xEZXRhaWxzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Clone/FrushgahMeysam/Views/details/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcZGV0YWlsc1xFZGl0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/Clone/FrushgahMeysam/Views/details/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcZGV0YWlsc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -49,6 +41,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Clone/FrushgahMeysam/Views/groups/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcZ3JvdXBzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Clone/FrushgahMeysam/Views/groups/user.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcZ3JvdXBzXHVzZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Clone/FrushgahMeysam/Views/Shared/Error.cshtml]
@@ -81,6 +77,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Clone/FrushgahMeysam/Views/subGroups/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc3ViR3JvdXBzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Clone/FrushgahMeysam/Views/subGroups/user.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc3ViR3JvdXBzXHVzZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Clone/FrushgahMeysam/Views/_ViewImports.cshtml]
