@@ -32,6 +32,10 @@ namespace frushgah.Models
         [Display(Name = "تصویر سوم")]
         public byte[]? pic3 { get; set; }
         //**********************************************************************
+        [Display(Name = "توضیحات")]
+        [Required(ErrorMessage = "لطفا توضیحات را وارد نمایید")]
+        public string? tozihat { get; set; }
+        //**********************************************************************
 
     }
 }

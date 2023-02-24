@@ -45,7 +45,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=groups}/{action=Index}/{id?}");
+    pattern: "{controller=groups}/{action=user}/{id?}");
 
 app.Run();
 

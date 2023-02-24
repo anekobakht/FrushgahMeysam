@@ -44,7 +44,54 @@ namespace frushgah.Controllers
             }
         }
 
-  
+        public async Task<IActionResult> user1(Int64? idSubGroup)
+        {
+            try
+            {
+                if (idSubGroup != null)
+                {
+                    HttpContext.Session.SetString("idSubGroup", idSubGroup.ToString());
+                }
+                else
+                {
+                    idSubGroup = Int64.Parse(HttpContext.Session.GetString("idSubGroup"));
+                }
+                //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                var q = _context.subGroup.AsNoTracking().Where(s => s.idSubGroup == idSubGroup).FirstOrDefault();
+                ViewBag.nameGroup = q.nameSubGroup;
+                //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                return View(await _context.detail.Where(s => s.idSubGroup == idSubGroup).ToListAsync());
+            }
+            catch(Exception ex)
+            {
+                return RedirectToAction("Index", "groups");
+            }
+        }
+
+        public async Task<IActionResult> user2(Int64? idDetail)
+        {
+            try
+            {
+                if (idDetail != null)
+                {
+                    HttpContext.Session.SetString("idDetail", idDetail.ToString());
+                }
+                else
+                {
+                    idDetail = Int64.Parse(HttpContext.Session.GetString("idDetail"));
+                }
+                //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                var q = _context.detail.AsNoTracking().Where(s => s.idDetail == idDetail).FirstOrDefault();
+                ViewBag.nameGroup = q.nameDetail;
+                //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                return View(await _context.detail.Where(s => s.idDetail == idDetail).ToListAsync());
+            }
+            catch
+            {
+                return RedirectToAction("user1", "detail");
+            }
+        }
+
         public IActionResult Create()
         {
             return View();
@@ -53,7 +100,7 @@ namespace frushgah.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(IFormFile pic1,IFormFile pic2,IFormFile pic3,[Bind("idDetail,nameDetail,price")] detail detail)
+        public async Task<IActionResult> Create(IFormFile pic1,IFormFile pic2,IFormFile pic3,[Bind("tozihat,idDetail,nameDetail,price")] detail detail)
         {
 
             try
@@ -156,7 +203,7 @@ namespace frushgah.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind("idDetail,idSubGroup,nameDetail,price,pic1,pic2,pic3")] detail detail)
+        public async Task<IActionResult> Edit(long id, [Bind("tozihat,idDetail,idSubGroup,nameDetail,price,pic1,pic2,pic3")] detail detail)
         {
             if (id != detail.idDetail)
             {
